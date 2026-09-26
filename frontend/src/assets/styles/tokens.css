@@ -1,0 +1,113 @@
+:root {
+  /* Surfaces & Canvas */
+  --color-bg-base: #0B0F17;
+  --color-bg-surface: #111827;
+  --color-bg-surface-raised: #1F2937;
+  --color-bg-surface-hover: #263345;
+  --color-bg-surface-active: #374151;
+
+  /* Text & Labels */
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+  --color-text-inverse: #0B0F17;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #1F2937;
+  --color-border-default: #374151;
+  --color-border-strong: #4B5563;
+
+  /* Accent (Restrained Cobalt) */
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.15);
+  --color-accent-focus: rgba(37, 99, 235, 0.35);
+
+  /* Semantic Status Tokens */
+  --color-status-open-bg: #1E293B;
+  --color-status-open-text: #93C5FD;
+  --color-status-open-border: #3B82F6;
+
+  --color-status-assigned-bg: #282566;
+  --color-status-assigned-text: #C7D2FE;
+  --color-status-assigned-border: #6366F1;
+
+  --color-status-progress-bg: #172554;
+  --color-status-progress-text: #60A5FA;
+  --color-status-progress-border: #2563EB;
+
+  --color-status-pending-bg: #374151;
+  --color-status-pending-text: #E5E7EB;
+  --color-status-pending-border: #6B7280;
+
+  --color-status-resolved-bg: #064E3B;
+  --color-status-resolved-text: #6EE7B7;
+  --color-status-resolved-border: #059669;
+
+  --color-status-closed-bg: #18181B;
+  --color-status-closed-text: #A1A1AA;
+  --color-status-closed-border: #3F3F46;
+
+  /* Priority Tokens */
+  --color-priority-low-bg: rgba(16, 185, 129, 0.12);
+  --color-priority-low-text: #34D399;
+  --color-priority-low-border: rgba(16, 185, 129, 0.3);
+
+  --color-priority-medium-bg: rgba(245, 158, 11, 0.12);
+  --color-priority-medium-text: #FBBF24;
+  --color-priority-medium-border: rgba(245, 158, 11, 0.3);
+
+  --color-priority-high-bg: rgba(249, 115, 22, 0.12);
+  --color-priority-high-text: #FB923C;
+  --color-priority-high-border: rgba(249, 115, 22, 0.3);
+
+  --color-priority-critical-bg: rgba(239, 68, 68, 0.15);
+  --color-priority-critical-text: #F87171;
+  --color-priority-critical-border: rgba(239, 68, 68, 0.4);
+
+  /* SLA Health Tokens */
+  --color-sla-healthy: #10B981;
+  --color-sla-warning: #F59E0B;
+  --color-sla-breached: #EF4444;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+}
+
+/* Enforce Hallmark & Unslop floor rules */
+html, body {
+  overflow-x: clip;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Tabular figures for operational scanability */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Instant focus visible without blurry outline */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
