@@ -3,8 +3,8 @@
     <div class="w-full max-w-md">
       <!-- Brand Header -->
       <div class="text-center mb-8">
-        <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-600 text-white font-bold text-lg shadow-lg mb-3">
-          OD
+        <div class="flex justify-center mb-3">
+          <AppLogo size="lg" />
         </div>
         <h1 class="text-2xl font-bold tracking-tight text-text-primary">OpsDesk</h1>
         <p class="text-xs text-text-secondary mt-1 font-mono uppercase tracking-wider">
@@ -89,6 +89,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import AppLogo from '@/components/common/AppLogo.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -124,3 +125,4 @@ async function quickLogin(roleName: 'admin' | 'agent' | 'requester' | 'manager')
   }
 }
 </script>
+

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <linearGradient id="plate-top" x1="10" y1="7" x2="38" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="plate-left" x1="10" y1="18" x2="22" y2="39" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="plate-right" x1="26" y1="18" x2="38" y2="39" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <filter id="core-glow" x="18" y="18" width="12" height="12" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Container Box -->
+  <rect width="48" height="48" rx="10" fill="url(#bg-grad)" stroke="#1F2937" stroke-width="1.5"/>
+
+  <!-- Top Prism Plate -->
+  <path d="M 24 8.5 L 37.5 16.2 L 24 23 L 10.5 16.2 Z" fill="url(#plate-top)" stroke="#93C5FD" stroke-width="0.5" stroke-opacity="0.4"/>
+
+  <!-- Left Isometric Plate -->
+  <path d="M 10 18.5 L 22.5 24.8 L 22.5 38.5 L 10 32 Z" fill="url(#plate-left)" stroke="#60A5FA" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <!-- Right Isometric Plate -->
+  <path d="M 25.5 24.8 L 38 18.5 L 38 32 L 25.5 38.5 Z" fill="url(#plate-right)" stroke="#93C5FD" stroke-width="0.5" stroke-opacity="0.4"/>
+
+  <!-- Central Nexus Core (Operational Radar Node) -->
+  <circle cx="24" cy="24" r="2.2" fill="#38BDF8" filter="url(#core-glow)"/>
+</svg>

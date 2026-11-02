@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="od-bg-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#161F30"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <linearGradient id="od-plate-top" x1="14" y1="10" x2="50" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="od-plate-left" x1="14" y1="24" x2="30" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="od-plate-right" x1="34" y1="24" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <filter id="od-glow" x="24" y="24" width="16" height="16" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Container -->
+  <rect width="64" height="64" rx="14" fill="url(#od-bg-grad)" stroke="#1F2937" stroke-width="1.5"/>
+
+  <!-- Top Prism Plate -->
+  <path d="M 32 11.5 L 50 21.8 L 32 30.5 L 14 21.8 Z" fill="url(#od-plate-top)" stroke="#93C5FD" stroke-width="0.75" stroke-opacity="0.5"/>
+
+  <!-- Left Isometric Plate -->
+  <path d="M 13.5 25 L 30 33.2 L 30 51.5 L 13.5 43 Z" fill="url(#od-plate-left)" stroke="#60A5FA" stroke-width="0.75" stroke-opacity="0.4"/>
+
+  <!-- Right Isometric Plate -->
+  <path d="M 34 33.2 L 50.5 25 L 50.5 43 L 34 51.5 Z" fill="url(#od-plate-right)" stroke="#93C5FD" stroke-width="0.75" stroke-opacity="0.5"/>
+
+  <!-- Precision Inset Highlights -->
+  <path d="M 32 15 L 45 22.5 L 32 28.5 L 19 22.5 Z" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <!-- Central Nexus Core -->
+  <circle cx="32" cy="32" r="3" fill="#38BDF8" filter="url(#od-glow)"/>
+  <circle cx="32" cy="32" r="1.5" fill="#FFFFFF"/>
+</svg>

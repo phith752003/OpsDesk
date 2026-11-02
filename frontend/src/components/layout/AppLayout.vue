@@ -9,15 +9,7 @@
     >
       <!-- Logo Header -->
       <div class="h-16 px-6 border-b border-border-default flex items-center justify-between">
-        <div class="flex items-center space-x-2.5">
-          <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-inner">
-            OD
-          </div>
-          <div class="flex flex-col">
-            <span class="text-sm font-bold tracking-tight text-text-primary">OpsDesk</span>
-            <span class="text-[10px] text-text-muted font-mono tracking-wider">IT SERVICE DESK</span>
-          </div>
-        </div>
+        <AppLogo size="md" :show-wordmark="true" />
         <button
           class="md:hidden p-1 text-text-muted hover:text-white"
           @click="isMobileMenuOpen = false"
@@ -209,6 +201,7 @@
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import AppLogo from '@/components/common/AppLogo.vue'
 import {
   LayoutDashboard,
   Ticket,
@@ -255,3 +248,4 @@ async function handleLogout() {
   router.push('/login')
 }
 </script>
+
