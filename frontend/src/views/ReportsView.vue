@@ -67,7 +67,7 @@
             class="p-4 rounded bg-bg-surface-raised border border-border-subtle"
           >
             <div class="text-xs font-mono text-text-muted uppercase">{{ sla.priority }} Priority</div>
-            <div class="mt-2 text-2xl font-bold font-mono tabular-nums" :class="sla.compliance_rate >= 95 ? 'text-emerald-400' : 'text-amber-400'">
+            <div class="mt-2 text-2xl font-bold font-mono tabular-nums" :class="sla.compliance_rate >= 95 ? 'text-emerald-700' : 'text-amber-700'">
               {{ sla.compliance_rate }}%
             </div>
             <div class="mt-1 text-[11px] text-text-muted">
@@ -113,13 +113,15 @@ const volumeChartOption = computed(() => {
     backgroundColor: 'transparent',
     tooltip: {
       trigger: 'axis',
-      backgroundColor: '#1F2937',
-      borderColor: '#374151',
-      textStyle: { color: '#F9FAFB', fontSize: 12 },
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E2E8F0',
+      borderWidth: 1,
+      textStyle: { color: '#0F172A', fontSize: 12 },
+      extraCssText: 'box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border-radius: 6px;',
     },
     legend: {
       data: ['Created', 'Resolved'],
-      textStyle: { color: '#9CA3AF' },
+      textStyle: { color: '#475569', fontSize: 12 },
       bottom: 0,
     },
     grid: {
@@ -132,26 +134,26 @@ const volumeChartOption = computed(() => {
     xAxis: {
       type: 'category',
       data: trend.map((t) => t.date),
-      axisLine: { lineStyle: { color: '#374151' } },
-      axisLabel: { color: '#9CA3AF', fontSize: 11 },
+      axisLine: { lineStyle: { color: '#CBD5E1' } },
+      axisLabel: { color: '#64748B', fontSize: 11 },
     },
     yAxis: {
       type: 'value',
-      splitLine: { lineStyle: { color: '#1F2937' } },
-      axisLabel: { color: '#9CA3AF', fontSize: 11 },
+      splitLine: { lineStyle: { color: '#F1F5F9' } },
+      axisLabel: { color: '#64748B', fontSize: 11 },
     },
     series: [
       {
         name: 'Created',
         type: 'bar',
         data: trend.map((t) => t.created),
-        itemStyle: { color: '#3B82F6', borderRadius: [3, 3, 0, 0] },
+        itemStyle: { color: '#2563EB', borderRadius: [3, 3, 0, 0] },
       },
       {
         name: 'Resolved',
         type: 'line',
         data: trend.map((t) => t.resolved),
-        itemStyle: { color: '#10B981' },
+        itemStyle: { color: '#059669' },
         lineStyle: { width: 3 },
       },
     ],
@@ -164,9 +166,11 @@ const categoryChartOption = computed(() => {
     backgroundColor: 'transparent',
     tooltip: {
       trigger: 'item',
-      backgroundColor: '#1F2937',
-      borderColor: '#374151',
-      textStyle: { color: '#F9FAFB', fontSize: 12 },
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E2E8F0',
+      borderWidth: 1,
+      textStyle: { color: '#0F172A', fontSize: 12 },
+      extraCssText: 'box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border-radius: 6px;',
     },
     series: [
       {
@@ -179,7 +183,7 @@ const categoryChartOption = computed(() => {
           name: c.name,
           value: c.count,
           itemStyle: {
-            color: ['#3B82F6', '#6366F1', '#10B981', '#F59E0B', '#EC4899', '#8B5CF6'][idx % 6],
+            color: ['#2563EB', '#4F46E5', '#059669', '#D97706', '#DB2777', '#7C3AED'][idx % 6],
           },
         })),
       },
@@ -191,3 +195,4 @@ onMounted(async () => {
   await dashboardStore.fetchTrends()
 })
 </script>
+

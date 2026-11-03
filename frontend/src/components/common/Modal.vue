@@ -2,12 +2,12 @@
   <Teleport to="body">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs"
       @click.self="close"
       @keydown.esc="close"
     >
       <div
-        class="w-full max-w-lg bg-bg-surface border border-border-default rounded-lg shadow-2xl overflow-hidden transition-subtle"
+        class="w-full max-w-lg bg-bg-surface border border-border-default rounded-lg shadow-xl overflow-hidden transition-subtle"
         role="dialog"
         aria-modal="true"
       >
@@ -55,3 +55,4 @@ function close() {
   emit('close')
 }
 </script>
+

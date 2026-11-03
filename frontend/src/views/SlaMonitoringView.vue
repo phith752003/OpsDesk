@@ -29,27 +29,27 @@
 
     <!-- Active Warning Summary Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="p-4 rounded-lg bg-red-950/30 border border-red-500/40">
-        <div class="text-[11px] font-mono text-red-300 uppercase tracking-wider">Active SLA Breaches</div>
-        <div class="text-2xl font-bold font-mono text-red-400 mt-1">
+      <div class="p-4 rounded-lg bg-red-50 border border-red-200">
+        <div class="text-[11px] font-mono text-red-800 uppercase tracking-wider font-semibold">Active SLA Breaches</div>
+        <div class="text-2xl font-bold font-mono text-red-600 mt-1">
           {{ breachedCount }}
         </div>
-        <div class="text-[11px] text-red-300/70 mt-1">Past guaranteed response or resolution time</div>
+        <div class="text-[11px] text-red-700 mt-1">Past guaranteed response or resolution time</div>
       </div>
 
-      <div class="p-4 rounded-lg bg-amber-950/30 border border-amber-500/40">
-        <div class="text-[11px] font-mono text-amber-300 uppercase tracking-wider">
+      <div class="p-4 rounded-lg bg-amber-50 border border-amber-200">
+        <div class="text-[11px] font-mono text-amber-800 uppercase tracking-wider font-semibold">
           At Risk (&lt;{{ slaStore.thresholdMinutes }}m remaining)
         </div>
-        <div class="text-2xl font-bold font-mono text-amber-400 mt-1">
+        <div class="text-2xl font-bold font-mono text-amber-700 mt-1">
           {{ atRiskCount }}
         </div>
-        <div class="text-[11px] text-amber-300/70 mt-1">Approaching breach threshold rapidly</div>
+        <div class="text-[11px] text-amber-700 mt-1">Approaching breach threshold rapidly</div>
       </div>
 
       <div class="p-4 rounded-lg bg-bg-surface border border-border-default">
-        <div class="text-[11px] font-mono text-text-secondary uppercase tracking-wider">Target Compliance Rate</div>
-        <div class="text-2xl font-bold font-mono text-emerald-400 mt-1">
+        <div class="text-[11px] font-mono text-text-secondary uppercase tracking-wider font-semibold">Target Compliance Rate</div>
+        <div class="text-2xl font-bold font-mono text-emerald-600 mt-1">
           95.0%
         </div>
         <div class="text-[11px] text-text-muted mt-1">Organizational minimum SLA standard</div>
@@ -89,7 +89,7 @@
 
             <tr v-else-if="slaStore.atRiskTickets.length === 0">
               <td colspan="7" class="px-4 py-12 text-center text-text-muted">
-                <CheckCircle2 class="w-8 h-8 text-emerald-400 mx-auto mb-2" />
+                <CheckCircle2 class="w-8 h-8 text-emerald-600 mx-auto mb-2" />
                 <div class="text-sm font-semibold text-text-primary">No Breached or At-Risk Incidents</div>
                 <p class="text-xs text-text-muted mt-1">All current open requests are operating within SLA commitments.</p>
               </td>
@@ -99,9 +99,9 @@
               v-for="t in slaStore.atRiskTickets"
               :key="t.id"
               class="hover:bg-bg-surface-hover/50 transition-subtle"
-              :class="t.is_sla_breached ? 'bg-red-950/10' : ''"
+              :class="t.is_sla_breached ? 'bg-red-50/70' : ''"
             >
-              <td class="px-4 py-3 font-mono font-semibold text-blue-400 whitespace-nowrap">
+              <td class="px-4 py-3 font-mono font-semibold text-blue-600 whitespace-nowrap">
                 <RouterLink :to="`/tickets/${t.id}`" class="hover:underline">
                   {{ t.reference_no }}
                 </RouterLink>
@@ -117,7 +117,7 @@
               </td>
               <td class="px-4 py-3 whitespace-nowrap">
                 <span v-if="t.agent" class="text-text-primary font-medium">{{ t.agent.name }}</span>
-                <span v-else class="text-red-400 font-mono font-bold">UNASSIGNED</span>
+                <span v-else class="text-red-600 font-mono font-bold">UNASSIGNED</span>
               </td>
               <td class="px-4 py-3 whitespace-nowrap">
                 <SlaCountdown
@@ -130,7 +130,7 @@
               <td class="px-4 py-3 text-right whitespace-nowrap">
                 <RouterLink
                   :to="`/tickets/${t.id}`"
-                  class="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs transition-subtle"
+                  class="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-semibold shadow-sm transition-subtle"
                 >
                   Resolve Now &rarr;
                 </RouterLink>
@@ -168,3 +168,4 @@ onMounted(async () => {
   await reloadBoard()
 })
 </script>
+

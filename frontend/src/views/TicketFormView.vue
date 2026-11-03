@@ -4,7 +4,7 @@
     <div class="flex items-center space-x-3 pb-4 border-b border-border-default">
       <RouterLink
         to="/tickets"
-        class="p-1.5 rounded bg-bg-surface-raised border border-border-default hover:text-white transition-subtle"
+        class="p-1.5 rounded bg-bg-surface-raised border border-border-default hover:text-text-primary transition-subtle"
       >
         <ArrowLeft class="w-4 h-4" />
       </RouterLink>
@@ -20,14 +20,14 @@
 
     <!-- Incident Form Card -->
     <form @submit.prevent="handleSubmit" class="bg-bg-surface border border-border-default rounded-lg p-6 space-y-5 shadow-sm">
-      <div v-if="errorMessage" class="p-3 rounded bg-red-950/60 border border-red-500/40 text-xs text-red-300">
+      <div v-if="errorMessage" class="p-3 rounded bg-red-50 border border-red-200 text-xs text-red-700 font-medium">
         {{ errorMessage }}
       </div>
 
       <!-- Incident Title -->
       <div>
         <label class="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-1.5">
-          Incident Summary / Title <span class="text-red-400">*</span>
+          Incident Summary / Title <span class="text-red-600">*</span>
         </label>
         <input
           v-model="form.title"
@@ -45,7 +45,7 @@
       <!-- Category Picker -->
       <div>
         <label class="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-1.5">
-          Operational Domain / Category <span class="text-red-400">*</span>
+          Operational Domain / Category <span class="text-red-600">*</span>
         </label>
         <select
           v-model="form.category_id"
@@ -66,14 +66,14 @@
       <!-- Severity / Priority Selector with SLA Target Hints -->
       <div>
         <label class="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2">
-          Severity Level &amp; Impact <span class="text-red-400">*</span>
+          Severity Level &amp; Impact <span class="text-red-600">*</span>
         </label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <label
             v-for="p in priorityOptions"
             :key="p.value"
             class="flex items-start p-3 rounded border cursor-pointer transition-subtle"
-            :class="form.priority === p.value ? 'bg-blue-950/30 border-blue-500/80 ring-1 ring-blue-500/50' : 'bg-bg-base border-border-subtle hover:border-border-default'"
+            :class="form.priority === p.value ? 'bg-blue-50/80 border-blue-500 ring-1 ring-blue-500' : 'bg-bg-surface border-border-default hover:border-border-strong'"
           >
             <input
               v-model="form.priority"
@@ -84,7 +84,7 @@
             <div class="text-xs">
               <div class="font-bold text-text-primary flex items-center space-x-1.5">
                 <span>{{ p.label }}</span>
-                <span class="text-[10px] font-mono px-1 rounded bg-bg-surface border border-border-subtle text-text-muted">
+                <span class="text-[10px] font-mono px-1 rounded bg-bg-surface-raised border border-border-default text-text-secondary">
                   {{ p.slaHint }}
                 </span>
               </div>
@@ -97,7 +97,7 @@
       <!-- Detailed Description -->
       <div>
         <label class="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-1.5">
-          Detailed Symptoms &amp; Diagnostic Context <span class="text-red-400">*</span>
+          Detailed Symptoms &amp; Diagnostic Context <span class="text-red-600">*</span>
         </label>
         <textarea
           v-model="form.description"
@@ -210,3 +210,4 @@ onMounted(async () => {
   }
 })
 </script>
+

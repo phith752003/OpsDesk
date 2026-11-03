@@ -34,8 +34,8 @@
         height="48"
         rx="11"
         :fill="`url(#logo-bg-${uniqueId})`"
-        stroke="#1F2937"
-        stroke-width="1.25"
+        stroke="#CBD5E1"
+        stroke-width="1"
       />
 
       <!-- Top Prism Plate -->
@@ -108,3 +108,4 @@ const sizeClasses = computed(() => {
   }
 })
 </script>
+

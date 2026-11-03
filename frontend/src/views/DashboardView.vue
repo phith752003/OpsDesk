@@ -24,22 +24,22 @@
     <!-- Active SLA Alert Banner (when breached tickets exist) -->
     <div
       v-if="slaStore.atRiskTickets.length > 0"
-      class="p-4 rounded-lg bg-red-950/40 border border-red-500/40 flex items-center justify-between"
+      class="p-4 rounded-lg bg-red-50 border border-red-200 flex items-center justify-between"
     >
       <div class="flex items-center space-x-3">
-        <AlertTriangle class="w-5 h-5 text-red-400 shrink-0" />
+        <AlertTriangle class="w-5 h-5 text-red-600 shrink-0" />
         <div>
-          <span class="text-sm font-semibold text-red-200">
+          <span class="text-sm font-semibold text-red-900">
             {{ slaStore.atRiskTickets.length }} Incident(s) Require Immediate Escalation
           </span>
-          <p class="text-xs text-red-300/80 mt-0.5">
+          <p class="text-xs text-red-700 mt-0.5">
             Tickets are approaching or have breached response or resolution SLA targets.
           </p>
         </div>
       </div>
       <RouterLink
         to="/sla"
-        class="text-xs font-medium text-red-300 hover:text-white underline underline-offset-4 font-mono shrink-0"
+        class="text-xs font-semibold text-red-700 hover:text-red-900 underline underline-offset-4 font-mono shrink-0"
       >
         View Escalation Board &rarr;
       </RouterLink>
@@ -142,13 +142,13 @@
           <h2 class="text-sm font-semibold text-text-primary uppercase tracking-wider">
             SLA Escalation Watchlist
           </h2>
-          <RouterLink to="/sla" class="text-xs text-blue-400 hover:text-blue-300 font-mono">
+          <RouterLink to="/sla" class="text-xs text-blue-600 hover:text-blue-700 font-mono font-medium">
             All ({{ slaStore.atRiskTickets.length }}) &rarr;
           </RouterLink>
         </div>
 
         <div v-if="slaStore.atRiskTickets.length === 0" class="flex-1 flex flex-col items-center justify-center py-8 text-center">
-          <CheckCircle2 class="w-8 h-8 text-emerald-400 mb-2" />
+          <CheckCircle2 class="w-8 h-8 text-emerald-600 mb-2" />
           <span class="text-sm font-medium text-text-primary">All SLA Targets Met</span>
           <span class="text-xs text-text-muted mt-1">No tickets are currently at risk or breached.</span>
         </div>
@@ -161,7 +161,7 @@
             class="block p-3 rounded bg-bg-surface-raised border border-border-subtle hover:border-border-strong transition-subtle group"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-mono text-blue-400 font-semibold">{{ t.reference_no }}</span>
+              <span class="font-mono text-blue-600 font-semibold">{{ t.reference_no }}</span>
               <SlaCountdown
                 :resolution-due-at="t.resolution_due_at"
                 :resolved-at="t.resolved_at"
@@ -169,7 +169,7 @@
                 :is-at-risk="t.is_at_risk"
               />
             </div>
-            <div class="text-xs text-text-primary font-medium line-clamp-1 group-hover:text-blue-300">
+            <div class="text-xs text-text-primary font-medium line-clamp-1 group-hover:text-blue-600">
               {{ t.title }}
             </div>
             <div class="mt-2 flex items-center justify-between text-[11px] text-text-muted">
@@ -190,7 +190,7 @@
           </h2>
           <span class="text-xs text-text-muted font-mono">Latest activity across all departments</span>
         </div>
-        <RouterLink to="/tickets" class="text-xs text-blue-400 hover:text-blue-300 font-mono">
+        <RouterLink to="/tickets" class="text-xs text-blue-600 hover:text-blue-700 font-mono font-medium">
           Open Full Queue &rarr;
         </RouterLink>
       </div>
@@ -214,7 +214,7 @@
               :key="t.id"
               class="hover:bg-bg-surface-hover/50 transition-subtle"
             >
-              <td class="px-4 py-3 font-mono font-semibold text-blue-400 whitespace-nowrap">
+              <td class="px-4 py-3 font-mono font-semibold text-blue-600 whitespace-nowrap">
                 {{ t.reference_no }}
               </td>
               <td class="px-4 py-3 text-text-primary font-medium max-w-xs truncate">
@@ -240,7 +240,7 @@
               <td class="px-4 py-3 text-right">
                 <RouterLink
                   :to="`/tickets/${t.id}`"
-                  class="text-xs font-mono text-blue-400 hover:text-blue-300 underline"
+                  class="text-xs font-mono font-medium text-blue-600 hover:text-blue-700 underline"
                 >
                   Inspect &rarr;
                 </RouterLink>
@@ -277,10 +277,10 @@ const slaStore = useSlaStore()
 const ticketStore = useTicketStore()
 
 const priorityItems: Array<{ key: TicketPriority; label: string; colorClass: string }> = [
-  { key: 'critical', label: 'Critical', colorClass: 'text-red-400' },
-  { key: 'high', label: 'High', colorClass: 'text-orange-400' },
-  { key: 'medium', label: 'Medium', colorClass: 'text-amber-400' },
-  { key: 'low', label: 'Low', colorClass: 'text-emerald-400' },
+  { key: 'critical', label: 'Critical', colorClass: 'text-red-700' },
+  { key: 'high', label: 'High', colorClass: 'text-orange-700' },
+  { key: 'medium', label: 'Medium', colorClass: 'text-amber-800' },
+  { key: 'low', label: 'Low', colorClass: 'text-emerald-700' },
 ]
 
 const statusItems: Array<{ key: TicketStatus; label: string }> = [

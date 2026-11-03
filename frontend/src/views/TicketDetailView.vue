@@ -12,12 +12,12 @@
       <div class="flex items-center space-x-3">
         <RouterLink
           to="/tickets"
-          class="p-1.5 rounded bg-bg-surface-raised border border-border-default hover:text-white transition-subtle"
+          class="p-1.5 rounded bg-bg-surface-raised border border-border-default hover:text-text-primary transition-subtle"
         >
           <ArrowLeft class="w-4 h-4" />
         </RouterLink>
         <div class="flex items-center space-x-2 font-mono">
-          <span class="text-base font-bold text-blue-400 bg-blue-950/60 px-2.5 py-1 rounded border border-blue-500/40">
+          <span class="text-base font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
             {{ ticket.reference_no }}
           </span>
           <PriorityBadge :priority="ticket.priority" />
@@ -63,7 +63,7 @@
             <button
               type="button"
               class="px-4 py-2.5 text-xs font-semibold flex items-center space-x-2 transition-subtle border-r border-border-default"
-              :class="!isInternalNoteMode ? 'bg-bg-surface text-blue-400 border-b-2 border-b-blue-500' : 'text-text-secondary hover:text-text-primary'"
+              :class="!isInternalNoteMode ? 'bg-bg-surface text-blue-700 border-b-2 border-b-blue-600' : 'text-text-secondary hover:text-text-primary'"
               @click="isInternalNoteMode = false"
             >
               <MessageSquare class="w-3.5 h-3.5" />
@@ -74,17 +74,17 @@
               v-if="authStore.isStaff"
               type="button"
               class="px-4 py-2.5 text-xs font-semibold flex items-center space-x-2 transition-subtle"
-              :class="isInternalNoteMode ? 'bg-amber-950/40 text-amber-300 border-b-2 border-b-amber-500' : 'text-text-secondary hover:text-amber-300'"
+              :class="isInternalNoteMode ? 'bg-amber-50 text-amber-800 border-b-2 border-b-amber-600' : 'text-text-secondary hover:text-amber-700'"
               @click="isInternalNoteMode = true"
             >
-              <Lock class="w-3.5 h-3.5 text-amber-400" />
+              <Lock class="w-3.5 h-3.5 text-amber-600" />
               <span>Confidential Internal Note</span>
             </button>
           </div>
 
           <!-- Note Form Content -->
-          <div class="p-4 space-y-3" :class="isInternalNoteMode ? 'bg-amber-950/10' : ''">
-            <div v-if="isInternalNoteMode" class="text-[11px] text-amber-400/90 font-mono flex items-center space-x-1.5">
+          <div class="p-4 space-y-3" :class="isInternalNoteMode ? 'bg-amber-50/40' : ''">
+            <div v-if="isInternalNoteMode" class="text-[11px] text-amber-800 font-mono flex items-center space-x-1.5 font-medium">
               <Lock class="w-3 h-3" />
               <span>Private engineering log — visible strictly to IT support staff &amp; administrators.</span>
             </div>
@@ -101,8 +101,8 @@
               <button
                 type="button"
                 :disabled="!newCommentBody.trim() || ticketStore.isActionLoading"
-                class="px-4 py-2 rounded text-xs font-semibold text-white transition-subtle disabled:opacity-40"
-                :class="isInternalNoteMode ? 'bg-amber-600 hover:bg-amber-500' : 'bg-blue-600 hover:bg-blue-500'"
+                class="px-4 py-2 rounded text-xs font-semibold text-white transition-subtle disabled:opacity-40 shadow-sm"
+                :class="isInternalNoteMode ? 'bg-amber-600 hover:bg-amber-700' : 'bg-blue-600 hover:bg-blue-700'"
                 @click="submitComment"
               >
                 <span v-if="ticketStore.isActionLoading">Submitting...</span>
@@ -127,12 +127,12 @@
               v-for="item in feedItems"
               :key="item.feedId"
               class="rounded-lg border p-4 transition-subtle"
-              :class="item.isInternal ? 'bg-amber-950/15 border-amber-500/30' : item.isAudit ? 'bg-bg-base border-border-subtle py-2.5 px-4 text-xs' : 'bg-bg-surface border-border-default'"
+              :class="item.isInternal ? 'bg-amber-50/70 border-amber-200' : item.isAudit ? 'bg-bg-surface-raised border-border-subtle py-2.5 px-4 text-xs' : 'bg-bg-surface border-border-default'"
             >
               <!-- Audit Trail Entry -->
               <div v-if="item.isAudit" class="flex items-center justify-between text-text-muted font-mono text-[11px]">
                 <div class="flex items-center space-x-2">
-                  <Activity class="w-3.5 h-3.5 text-blue-400" />
+                  <Activity class="w-3.5 h-3.5 text-blue-600" />
                   <span>
                     <strong class="text-text-secondary">{{ item.actorName }}</strong>
                     {{ formatAuditAction(item.action, item.metadata) }}
@@ -147,14 +147,14 @@
                   <div class="flex items-center space-x-2.5">
                     <div
                       class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold"
-                      :class="item.isInternal ? 'bg-amber-900 text-amber-200' : 'bg-blue-900 text-blue-200'"
+                      :class="item.isInternal ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'bg-blue-100 text-blue-800 border border-blue-200'"
                     >
                       {{ item.userName?.charAt(0) || 'U' }}
                     </div>
                     <span class="text-xs font-semibold text-text-primary">{{ item.userName }}</span>
                     <span
                       v-if="item.isInternal"
-                      class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-900/60 text-amber-300 border border-amber-500/30"
+                      class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-100 text-amber-800 border border-amber-300 font-semibold"
                     >
                       <Lock class="w-2.5 h-2.5 mr-1" />
                       INTERNAL NOTE
@@ -247,7 +247,7 @@
         <div class="bg-bg-surface border border-border-default rounded-lg p-5 space-y-3">
           <h2 class="text-xs font-semibold text-text-primary uppercase tracking-wider font-mono border-b border-border-subtle pb-2 flex items-center justify-between">
             <span>SLA Performance Targets</span>
-            <ShieldAlert class="w-3.5 h-3.5 text-blue-400" />
+            <ShieldAlert class="w-3.5 h-3.5 text-blue-600" />
           </h2>
 
           <div class="space-y-2 text-xs">
@@ -272,7 +272,7 @@
               </span>
             </div>
 
-            <div v-if="ticket.resolved_at" class="flex items-center justify-between text-emerald-400">
+            <div v-if="ticket.resolved_at" class="flex items-center justify-between text-emerald-700 font-semibold">
               <span class="font-mono">Resolved At:</span>
               <span class="font-mono tabular-nums">{{ formatDate(ticket.resolved_at) }}</span>
             </div>
@@ -431,3 +431,4 @@ onMounted(async () => {
   }
 })
 </script>
+

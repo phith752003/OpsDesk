@@ -57,10 +57,10 @@
               </td>
               <td class="px-4 py-3 whitespace-nowrap">
                 <span
-                  class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono"
-                  :class="u.is_active ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/30' : 'bg-red-950 text-red-400 border border-red-500/30'"
+                  class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium"
+                  :class="u.is_active ? 'bg-emerald-50 text-emerald-700 border border-emerald-300' : 'bg-red-50 text-red-700 border border-red-300'"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full mr-1" :class="u.is_active ? 'bg-emerald-400' : 'bg-red-400'" />
+                  <span class="w-1.5 h-1.5 rounded-full mr-1" :class="u.is_active ? 'bg-emerald-600' : 'bg-red-600'" />
                   {{ u.is_active ? 'Active' : 'Deactivated' }}
                 </span>
               </td>
@@ -68,8 +68,8 @@
                 <button
                   v-if="authStore.isAdmin && u.id !== authStore.user?.id"
                   type="button"
-                  class="px-2.5 py-1 rounded text-xs font-mono transition-subtle border border-border-default hover:border-border-strong"
-                  :class="u.is_active ? 'text-amber-400 hover:bg-amber-950/20' : 'text-emerald-400 hover:bg-emerald-950/20'"
+                  class="px-2.5 py-1 rounded text-xs font-mono font-medium transition-subtle border border-border-default hover:border-border-strong"
+                  :class="u.is_active ? 'text-amber-700 hover:bg-amber-50' : 'text-emerald-700 hover:bg-emerald-50'"
                   @click="toggleUserActive(u)"
                 >
                   {{ u.is_active ? 'Deactivate' : 'Activate' }}
@@ -84,7 +84,7 @@
     <!-- Provision User Modal -->
     <Modal :is-open="isModalOpen" title="Provision New System User" @close="isModalOpen = false">
       <form @submit.prevent="handleCreateUser" class="space-y-4 text-xs">
-        <div v-if="modalError" class="p-2.5 rounded bg-red-950/50 border border-red-500/40 text-red-300">
+        <div v-if="modalError" class="p-2.5 rounded bg-red-50 border border-red-200 text-red-700 font-medium">
           {{ modalError }}
         </div>
 
@@ -202,13 +202,13 @@ const createForm = ref({
 function roleBadgeClasses(role: string) {
   switch (role) {
     case 'admin':
-      return 'bg-purple-950/50 text-purple-300 border-purple-500/30'
+      return 'bg-purple-50 text-purple-700 border-purple-200'
     case 'manager':
-      return 'bg-blue-950/50 text-blue-300 border-blue-500/30'
+      return 'bg-indigo-50 text-indigo-700 border-indigo-200'
     case 'agent':
-      return 'bg-emerald-950/50 text-emerald-300 border-emerald-500/30'
+      return 'bg-blue-50 text-blue-700 border-blue-200'
     default:
-      return 'bg-gray-800 text-gray-300 border-gray-700'
+      return 'bg-slate-100 text-slate-700 border-slate-300'
   }
 }
 
@@ -256,3 +256,4 @@ onMounted(async () => {
   ])
 })
 </script>
+

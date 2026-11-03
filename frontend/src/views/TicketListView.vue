@@ -92,7 +92,7 @@
         <span class="text-text-muted">Filtering active</span>
         <button
           type="button"
-          class="text-blue-400 hover:text-blue-300 font-mono underline"
+          class="text-blue-600 hover:text-blue-700 font-mono underline font-medium"
           @click="resetFilters"
         >
           Reset Filters
@@ -146,7 +146,7 @@
               <td class="px-4 py-3 font-mono whitespace-nowrap">
                 <RouterLink
                   :to="`/tickets/${t.id}`"
-                  class="font-semibold text-blue-400 hover:text-blue-300 group-hover:underline"
+                  class="font-semibold text-blue-600 hover:text-blue-700 group-hover:underline"
                 >
                   {{ t.reference_no }}
                 </RouterLink>
@@ -156,7 +156,7 @@
               <td class="px-4 py-3 max-w-sm">
                 <RouterLink
                   :to="`/tickets/${t.id}`"
-                  class="font-medium text-text-primary hover:text-blue-300 block truncate"
+                  class="font-medium text-text-primary hover:text-blue-600 block truncate"
                 >
                   {{ t.title }}
                 </RouterLink>
@@ -191,7 +191,7 @@
                 </span>
                 <span
                   v-else
-                  class="inline-block px-2 py-0.5 rounded bg-gray-800 text-gray-400 text-[11px] font-mono"
+                  class="inline-block px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200 text-[11px] font-mono"
                 >
                   Unassigned
                 </span>
@@ -211,7 +211,7 @@
               <td class="px-4 py-3 text-right whitespace-nowrap">
                 <RouterLink
                   :to="`/tickets/${t.id}`"
-                  class="px-2.5 py-1 rounded bg-bg-surface-raised border border-border-subtle hover:border-blue-500/50 text-blue-400 text-xs font-mono transition-subtle"
+                  class="px-2.5 py-1 rounded bg-bg-surface-raised border border-border-default hover:border-blue-500 hover:bg-blue-50 text-blue-600 text-xs font-mono font-medium transition-subtle"
                 >
                   Details &rarr;
                 </RouterLink>
@@ -298,3 +298,4 @@ onMounted(async () => {
   ])
 })
 </script>
+

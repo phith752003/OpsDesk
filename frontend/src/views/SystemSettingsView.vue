@@ -10,7 +10,7 @@
           Global helpdesk rules, response targets, and institutional parameters
         </p>
       </div>
-      <div v-if="successMsg" class="px-3 py-1.5 rounded bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono">
+      <div v-if="successMsg" class="px-3 py-1.5 rounded bg-emerald-50 border border-emerald-300 text-emerald-700 text-xs font-mono font-medium">
         {{ successMsg }}
       </div>
     </div>
@@ -26,7 +26,7 @@
             Defines initial response and resolution windows for ticket timers
           </p>
         </div>
-        <Shield class="w-5 h-5 text-blue-400" />
+        <Shield class="w-5 h-5 text-blue-600" />
       </div>
 
       <div class="overflow-x-auto">
@@ -53,7 +53,7 @@
                 <span class="text-text-muted text-[10px]">({{ policy.resolution_time_minutes }}m)</span>
               </td>
               <td class="py-3 text-right">
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] bg-blue-950 text-blue-300 border border-blue-500/30">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] bg-blue-50 text-blue-700 border border-blue-200 font-semibold">
                   Active
                 </span>
               </td>
@@ -182,3 +182,4 @@ onMounted(async () => {
   }
 })
 </script>
+

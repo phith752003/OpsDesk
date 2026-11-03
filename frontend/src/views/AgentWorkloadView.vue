@@ -29,7 +29,7 @@
           </div>
           <span
             class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold"
-            :class="agent.capacity_percentage > 80 ? 'bg-red-950 text-red-300 border border-red-500/40' : agent.capacity_percentage > 50 ? 'bg-amber-950 text-amber-300 border border-amber-500/40' : 'bg-emerald-950 text-emerald-300 border border-emerald-500/40'"
+            :class="agent.capacity_percentage > 80 ? 'bg-red-50 text-red-700 border border-red-300' : agent.capacity_percentage > 50 ? 'bg-amber-50 text-amber-800 border border-amber-300' : 'bg-emerald-50 text-emerald-700 border border-emerald-300'"
           >
             {{ agent.capacity_percentage }}% Load
           </span>
@@ -54,15 +54,15 @@
         <div class="grid grid-cols-3 gap-2 pt-2 border-t border-border-subtle text-center text-xs">
           <div class="p-2 rounded bg-bg-surface-raised border border-border-subtle">
             <div class="text-[10px] text-text-muted font-mono uppercase">In Prog</div>
-            <div class="text-sm font-bold font-mono text-blue-400 mt-0.5">{{ agent.in_progress_count }}</div>
+            <div class="text-sm font-bold font-mono text-blue-600 mt-0.5">{{ agent.in_progress_count }}</div>
           </div>
           <div class="p-2 rounded bg-bg-surface-raised border border-border-subtle">
             <div class="text-[10px] text-text-muted font-mono uppercase">Resolved</div>
-            <div class="text-sm font-bold font-mono text-emerald-400 mt-0.5">{{ agent.resolved_today_count }}</div>
+            <div class="text-sm font-bold font-mono text-emerald-600 mt-0.5">{{ agent.resolved_today_count }}</div>
           </div>
           <div class="p-2 rounded bg-bg-surface-raised border border-border-subtle">
             <div class="text-[10px] text-text-muted font-mono uppercase">Breaches</div>
-            <div class="text-sm font-bold font-mono text-red-400 mt-0.5">{{ agent.breached_count }}</div>
+            <div class="text-sm font-bold font-mono text-red-600 mt-0.5">{{ agent.breached_count }}</div>
           </div>
         </div>
       </div>
@@ -80,3 +80,4 @@ onMounted(async () => {
   await dashboardStore.fetchWorkload()
 })
 </script>
+

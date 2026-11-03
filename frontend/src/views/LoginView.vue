@@ -13,10 +13,10 @@
       </div>
 
       <!-- Login Card -->
-      <div class="bg-bg-surface border border-border-default rounded-lg p-6 shadow-xl">
+      <div class="bg-bg-surface border border-border-default rounded-lg p-6 shadow-sm">
         <h2 class="text-base font-semibold text-text-primary mb-4">Sign in to your account</h2>
 
-        <div v-if="errorMessage" class="mb-4 p-3 rounded bg-red-950/60 border border-red-500/40 text-xs text-red-300">
+        <div v-if="errorMessage" class="mb-4 p-3 rounded bg-red-50 border border-red-200 text-xs text-red-700 font-medium">
           {{ errorMessage }}
         </div>
 
@@ -50,7 +50,7 @@
           <button
             type="submit"
             :disabled="authStore.isLoading"
-            class="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded transition-subtle disabled:opacity-50 flex items-center justify-center space-x-2"
+            class="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded transition-subtle disabled:opacity-50 flex items-center justify-center space-x-2 shadow-sm"
           >
             <span v-if="authStore.isLoading">Signing in...</span>
             <span v-else>Authenticate</span>
@@ -67,10 +67,10 @@
               v-for="d in demoAccounts"
               :key="d.role"
               type="button"
-              class="p-2 rounded bg-bg-surface-raised border border-border-subtle hover:border-blue-500/50 text-left transition-subtle group"
+              class="p-2 rounded bg-bg-surface-raised border border-border-default hover:border-blue-500 hover:bg-blue-50/50 text-left transition-subtle group"
               @click="quickLogin(d.role)"
             >
-              <div class="text-xs font-semibold text-text-primary group-hover:text-blue-400">{{ d.name }}</div>
+              <div class="text-xs font-semibold text-text-primary group-hover:text-blue-600">{{ d.name }}</div>
               <div class="text-[10px] text-text-muted font-mono capitalize">{{ d.role }}</div>
             </button>
           </div>

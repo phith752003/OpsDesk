@@ -10,7 +10,7 @@
       <div class="text-2xl font-bold font-mono tabular-nums text-text-primary tracking-tight">
         {{ value }}
       </div>
-      <div v-if="change" :class="['text-xs font-medium', isPositive ? 'text-emerald-400' : 'text-amber-400']">
+      <div v-if="change" :class="['text-xs font-semibold', isPositive ? 'text-emerald-700' : 'text-amber-700']">
         {{ change }}
       </div>
     </div>
@@ -29,3 +29,4 @@ defineProps<{
   isPositive?: boolean
 }>()
 </script>
+

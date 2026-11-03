@@ -11,7 +11,7 @@
       <div class="h-16 px-6 border-b border-border-default flex items-center justify-between">
         <AppLogo size="md" :show-wordmark="true" />
         <button
-          class="md:hidden p-1 text-text-muted hover:text-white"
+          class="md:hidden p-1 text-text-muted hover:text-text-primary"
           @click="isMobileMenuOpen = false"
         >
           <X class="w-5 h-5" />
@@ -23,7 +23,7 @@
         <RouterLink
           to="/dashboard"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/dashboard') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/dashboard') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <LayoutDashboard class="w-4 h-4 mr-3 shrink-0" />
@@ -33,7 +33,7 @@
         <RouterLink
           to="/tickets"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/tickets') && !isActive('/tickets/new') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/tickets') && !isActive('/tickets/new') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <Ticket class="w-4 h-4 mr-3 shrink-0" />
@@ -43,7 +43,7 @@
         <RouterLink
           to="/tickets/new"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/tickets/new') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/tickets/new') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <PlusCircle class="w-4 h-4 mr-3 shrink-0" />
@@ -59,10 +59,10 @@
           v-if="authStore.isStaff"
           to="/sla"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/sla') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/sla') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
-          <ShieldAlert class="w-4 h-4 mr-3 shrink-0 text-amber-400" />
+          <ShieldAlert class="w-4 h-4 mr-3 shrink-0 text-amber-600" />
           SLA Monitoring
         </RouterLink>
 
@@ -70,7 +70,7 @@
           v-if="authStore.isAdmin || authStore.isManager"
           to="/workload"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/workload') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/workload') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <Users class="w-4 h-4 mr-3 shrink-0" />
@@ -81,7 +81,7 @@
           v-if="authStore.isAdmin || authStore.isManager"
           to="/reports"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/reports') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/reports') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <BarChart3 class="w-4 h-4 mr-3 shrink-0" />
@@ -97,7 +97,7 @@
           v-if="authStore.isAdmin || authStore.isManager"
           to="/users"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/users') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/users') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <UserCog class="w-4 h-4 mr-3 shrink-0" />
@@ -108,7 +108,7 @@
           v-if="authStore.isAdmin"
           to="/settings"
           class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-subtle"
-          :class="isActive('/settings') ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
+          :class="isActive('/settings') ? 'bg-blue-50 text-blue-700 font-semibold border border-blue-200' : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-raised'"
           @click="isMobileMenuOpen = false"
         >
           <Sliders class="w-4 h-4 mr-3 shrink-0" />
@@ -120,7 +120,7 @@
       <div class="p-3 border-t border-border-default bg-bg-surface-raised/40">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3 overflow-hidden">
-            <div class="w-8 h-8 rounded-full bg-blue-600/30 border border-blue-500/40 flex items-center justify-center font-bold text-xs text-blue-300 shrink-0">
+            <div class="w-8 h-8 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-bold text-xs text-blue-700 shrink-0">
               {{ authStore.user?.name.charAt(0) || 'U' }}
             </div>
             <div class="flex flex-col min-w-0">
@@ -130,7 +130,7 @@
           </div>
           <button
             type="button"
-            class="p-1.5 rounded text-text-muted hover:text-red-400 hover:bg-bg-surface-raised transition-subtle"
+            class="p-1.5 rounded text-text-muted hover:text-red-600 hover:bg-bg-surface-raised transition-subtle"
             title="Log out"
             @click="handleLogout"
           >
@@ -146,13 +146,13 @@
       <header class="h-16 border-b border-border-default bg-bg-surface px-4 md:px-8 flex items-center justify-between shrink-0 z-20">
         <div class="flex items-center space-x-3">
           <button
-            class="md:hidden p-2 rounded text-text-muted hover:text-white"
+            class="md:hidden p-2 rounded text-text-muted hover:text-text-primary"
             @click="isMobileMenuOpen = true"
           >
             <Menu class="w-5 h-5" />
           </button>
           <div class="flex items-center space-x-2 text-xs font-mono text-text-muted">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span class="hidden sm:inline">OPSDESK-CORE</span>
             <span>•</span>
             <span class="text-text-secondary uppercase">{{ currentRouteName }}</span>

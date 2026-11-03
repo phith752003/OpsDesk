@@ -1,11 +1,11 @@
 <template>
   <span
     :class="[
-      'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border',
+      'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border font-mono',
       statusClasses
     ]"
   >
-    <span :class="['w-1.5 h-1.5 rounded-full mr-1.5', dotClasses]" />
+    <span :class="['w-1.5 h-1.5 rounded-full mr-1.5 shrink-0', dotClasses]" />
     {{ label }}
   </span>
 </template>
@@ -21,38 +21,38 @@ const props = defineProps<{
 const statusClasses = computed(() => {
   switch (props.status) {
     case 'open':
-      return 'bg-slate-800 text-blue-300 border-blue-500/30'
+      return 'bg-blue-50 text-blue-700 border-blue-200'
     case 'assigned':
-      return 'bg-indigo-950 text-indigo-300 border-indigo-500/30'
+      return 'bg-indigo-50 text-indigo-700 border-indigo-200'
     case 'in_progress':
-      return 'bg-blue-950 text-blue-400 border-blue-500/40'
+      return 'bg-sky-50 text-sky-700 border-sky-300'
     case 'pending':
-      return 'bg-gray-800 text-gray-300 border-gray-600/40'
+      return 'bg-slate-100 text-slate-700 border-slate-300'
     case 'resolved':
-      return 'bg-emerald-950 text-emerald-300 border-emerald-500/30'
+      return 'bg-emerald-50 text-emerald-700 border-emerald-200'
     case 'closed':
-      return 'bg-zinc-900 text-zinc-400 border-zinc-700/40'
+      return 'bg-gray-100 text-gray-600 border-gray-300'
     default:
-      return 'bg-gray-800 text-gray-400 border-gray-700'
+      return 'bg-slate-100 text-slate-600 border-slate-300'
   }
 })
 
 const dotClasses = computed(() => {
   switch (props.status) {
     case 'open':
-      return 'bg-blue-400'
+      return 'bg-blue-600'
     case 'assigned':
-      return 'bg-indigo-400'
+      return 'bg-indigo-600'
     case 'in_progress':
-      return 'bg-blue-500 animate-pulse'
+      return 'bg-sky-600 animate-pulse'
     case 'pending':
-      return 'bg-gray-400'
+      return 'bg-slate-500'
     case 'resolved':
-      return 'bg-emerald-400'
+      return 'bg-emerald-600'
     case 'closed':
-      return 'bg-zinc-500'
+      return 'bg-gray-500'
     default:
-      return 'bg-gray-400'
+      return 'bg-slate-400'
   }
 })
 
